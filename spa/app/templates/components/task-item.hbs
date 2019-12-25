@@ -1,0 +1,12 @@
+<label class="cb-label">
+  <input type="checkbox" name="finished" onchange={{action "checkboxClick"}} checked={{task.finished}} class="checkbox-finished">
+  <span class="cb-custom"></span>
+</label>
+<span class="task-name-container">
+{{#if isEditing}}
+  <input onkeyup={{action "endEditing"}} onblur={{action "endEditing"}} value="{{task.name}}" class="task-name-editor">
+{{else}}
+<b>{{myIndex}}.</b><span {{action "startEditing" on="doubleClick"}}>{{task.name}}</span>
+{{/if}}
+</span>
+<button class="button-delete" {{action "deleteTask"}}>x</button>

@@ -1,0 +1,20 @@
+<div class="tasks-header">
+<span class="main-title">משימות</span>
+<button class="button-add" {{action "addTask"}}><div>+</div></button>
+</div>
+<ul class="task-list">
+  {{#each model as |task index|}}
+    {{task-item task=task index=index toggleIsFinished=(action "toggleIsFinished") editName=(action "editName") deleteTask=(action "deleteTask")}}
+  {{/each}}
+</ul>
+<section class="totals">
+  <span class="to-finish">לסיום:
+    <b>{{unfinishedCount}}</b>
+  </span>
+  <span class="finished">הושלמו:
+    <b>{{finishedCount}}</b>
+  </span>
+  <span class="total">סה"כ:
+    <b>{{model.length}}</b>
+  </span>
+</section>
